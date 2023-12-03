@@ -1,0 +1,36 @@
+def main():
+    ifp = open('input.txt')
+    res = 0
+    ref = {'red': 12, 'green': 13, 'blue': 14}
+    for i, line in enumerate(ifp.readlines()):
+        red = 12
+        green = 13
+        blue = 14
+        line = line.strip()
+        line = line.split(':')[1].strip()
+        games = line.split(';')
+        print(games)
+        valid = True
+        for j, game in enumerate(games):
+            print(game)
+            vals = game.split(',')
+            print(vals)
+            for val in vals:
+                num = val.split()[0]
+                color = val.split()[1]
+                print(num, color)
+                if num > ref[color]:
+                    valid = False
+                    break
+        if valid:
+            res += i + 1
+
+    print(res)
+                
+                
+main()            
+            
+        
+        
+
+        
